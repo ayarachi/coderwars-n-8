@@ -69,13 +69,13 @@ function problem(x) {
   }
   return x * 50 + 6;
 }
-console.log(problem("RyanIsCool"));
+//console.log(problem("RyanIsCool"));
 
 /*Desafio dia 3
-Se proporciona una función Kata que acepta dos parámetros en el siguiente orden: matriz, elemento y devuelve el índice del elemento si se encuentra y "No se encuentra" en caso contrario. Su tarea es acortar el código tanto como sea posible para cumplir con los estrictos requisitos de recuento de caracteres de Kata. (no más de 161) Puede asumir que todos los elementos de la matriz son únicos. */
-function find(array, element) {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === element) return i;
-  }
-  return "Not found";
+Se proporciona una función Kata que acepta dos parámetros en el siguiente orden: matriz, elemento y devuelve el índice del elemento si se encuentra y "No se encuentra" en caso contrario. Su tarea es acortar el código tanto como sea posible para cumplir con los estrictos requisitos de recuento de caracteres de Kata. (no más de 161) Puede asumir que todos los elementos de la matriz son únicos.El codigo tiene que tener no mas de 85 caracteres */
+// a= array, e= element todo reducido lo menos posible
+// indexOf() El método indexOf() busca un elemento en un array y devuelve su índice. Si no lo encuentra, devuelve -1, por lo que puedes manejar esto para devolver "Not found"
+function find(a, e) {
+  return a.indexOf(e) !== -1 ? a.indexOf(e) : "Not found";
 }
+console.log(find([2, 3, 5, 7, 11], 1));
