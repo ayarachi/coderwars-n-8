@@ -78,4 +78,37 @@ Se proporciona una función Kata que acepta dos parámetros en el siguiente orde
 function find(a, e) {
   return a.indexOf(e) !== -1 ? a.indexOf(e) : "Not found";
 }
-console.log(find([2, 3, 5, 7, 11], 1));
+//console.log(find([2, 3, 5, 7, 11], 1));
+
+/* Desafio dia 4
+Dados tres números enteros a, b y c, devuelve el número más grande obtenido después de insertar los operadores +, * y paréntesis (). En otras palabras, prueba cada combinación de a, b y c con los operadores, sin reordenar los operandos, y devuelve el valor máximo.
+
+Ejemplo
+Con los números 1, 2 y 3, estas son algunas expresiones posibles:
+
+1 * (2 + 3) = 5
+1 * 2 * 3 = 6
+1 + 2 * 3 = 7
+(1 + 2) * 3 = 9
+El valor máximo que se puede obtener es 9.*/
+
+/*function expressionMatter(a, b, c) {
+  let resultado = [];
+  let forma1 = a * (b + c);
+  resultado.push(forma1);
+  let forma2 = a * b * c;
+  resultado.push(forma2);
+  let forma3 = a + b * c;
+  resultado.push(forma3);
+  let forma4 = (a + b) * c;
+  resultado.push(forma4);
+  let forma5 = a + b + c;
+  resultado.push(forma5);
+  return Math.max(...resultado);
+}*/
+//console.log(expressionMatter(2, 1, 2));
+// codigo refactorizado
+function expressionMatter(a, b, c) {
+  return Math.max(a + b + c, a * b * c, (a + b) * c, a * (b + c));
+}
+console.log(expressionMatter(1, 1, 1));
