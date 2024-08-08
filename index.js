@@ -111,4 +111,22 @@ El valor máximo que se puede obtener es 9.*/
 function expressionMatter(a, b, c) {
   return Math.max(a + b + c, a * b * c, (a + b) * c, a * (b + c));
 }
-console.log(expressionMatter(1, 1, 1));
+//console.log(expressionMatter(1, 1, 1));
+
+/*
+Desafio dia 5 
+Crea una función que tome un número entero como argumento y devuelva "Par" para números pares o "Impar" para números impares*/
+function evenOrOdd(num) {
+  if (num % 2 === 0) {
+    return "Even";
+  } else {
+    return "Odd";
+  }
+}
+//console.log(evenOrOdd(-748));
+//código refactorizado
+
+function evenOrOdd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+console.log(evenOrOdd(-748));
