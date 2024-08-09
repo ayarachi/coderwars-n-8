@@ -130,3 +130,13 @@ function evenOrOdd(number) {
   return number % 2 === 0 ? "Even" : "Odd";
 }
 console.log(evenOrOdd(-748));
+/* Desafio dia 6 
+Dada una cadena, debes devolver una cadena en la que cada carácter (sensible a mayúsculas y minúsculas) se repita una vez.*/
+function doubleChar(str) {
+  let resultado = "";
+  for (let i = 0; i < str.length; i++) {
+    resultado += str[i] + str[i];
+  }
+  return resultado;
+}
+console.log(doubleChar("abcd"));
