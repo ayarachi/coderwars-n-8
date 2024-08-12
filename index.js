@@ -139,4 +139,35 @@ function doubleChar(str) {
   }
   return resultado;
 }
-console.log(doubleChar("abcd"));
+//console.log(doubleChar("abcd"));
+
+/* Dado un punto en un plano euclidiano (x e y), devuelve el cuadrante en el que se encuentra el punto: 1, 2, 3 o 4 (número entero). x e y son números enteros distintos de cero, por lo tanto, el punto dado nunca se encuentra en los ejes.
+Pasos para Determinar el Cuadrante
+Observa los signos de las coordenadas x e y:
+
+Si x > 0 y y > 0, el punto está en el Cuadrante 1.
+Si x < 0 y y > 0, el punto está en el Cuadrante 2.
+Si x < 0 y y < 0, el punto está en el Cuadrante 3.
+Si x > 0 y y < 0, el punto está en el Cuadrante 4.
+Aplica esta lógica a cualquier punto:
+
+Ejemplo (1, 2):
+
+Aquí, x = 1 y y = 2.
+Ambos son positivos, así que el punto está en el Cuadrante 1
+Ejemplos (1, 2) => 1 (3, 5) => 1 (-10, 100) => 2 (-1, -9) => 3 (19, -56) => 4*/
+function quadrant(x, y) {
+  if (x > 0 && y > 0) {
+    return 1;
+  }
+  if (x < 0 && y > 0) {
+    return 2;
+  }
+  if (x < 0 && y < 0) {
+    return 3;
+  }
+  if (x > 0 && y < 0) {
+    return 4;
+  }
+}
+console.log(quadrant(1, 2));
