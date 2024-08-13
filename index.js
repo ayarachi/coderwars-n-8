@@ -129,7 +129,7 @@ function evenOrOdd(num) {
 function evenOrOdd(number) {
   return number % 2 === 0 ? "Even" : "Odd";
 }
-console.log(evenOrOdd(-748));
+//console.log(evenOrOdd(-748));
 /* Desafio dia 6 
 Dada una cadena, debes devolver una cadena en la que cada carácter (sensible a mayúsculas y minúsculas) se repita una vez.*/
 function doubleChar(str) {
@@ -170,4 +170,21 @@ function quadrant(x, y) {
     return 4;
   }
 }
-console.log(quadrant(1, 2));
+//console.log(quadrant(1, 2));
+/*Dadas 2 cadenas, a y b, devuelve una cadena con la forma short+long+short, con la cadena más corta en el exterior y la cadena más larga en el interior. Las cadenas no tendrán la misma longitud, pero pueden estar vacías (longitud cero).*/
+function solution(a, b) {
+  let cadena1 = a.length;
+  let cadena2 = b.length;
+  if (cadena1 > cadena2) {
+    return `${b}${a}${b}`;
+  } else {
+    return `${a}${b}${a}`;
+  }
+}
+console.log(solution("ar", "lom"));
+/*  otra manera de hacerlo 
+function solution(a, b) {
+  return a.length < b.length ? a + b + a : b + a + b
+}
+  console.log(solution("ar", "lom"));
+*/
