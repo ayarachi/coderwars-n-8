@@ -141,7 +141,8 @@ function doubleChar(str) {
 }
 //console.log(doubleChar("abcd"));
 
-/* Dado un punto en un plano euclidiano (x e y), devuelve el cuadrante en el que se encuentra el punto: 1, 2, 3 o 4 (número entero). x e y son números enteros distintos de cero, por lo tanto, el punto dado nunca se encuentra en los ejes.
+/* Desafio dia 7
+Dado un punto en un plano euclidiano (x e y), devuelve el cuadrante en el que se encuentra el punto: 1, 2, 3 o 4 (número entero). x e y son números enteros distintos de cero, por lo tanto, el punto dado nunca se encuentra en los ejes.
 Pasos para Determinar el Cuadrante
 Observa los signos de las coordenadas x e y:
 
@@ -171,7 +172,9 @@ function quadrant(x, y) {
   }
 }
 //console.log(quadrant(1, 2));
-/*Dadas 2 cadenas, a y b, devuelve una cadena con la forma short+long+short, con la cadena más corta en el exterior y la cadena más larga en el interior. Las cadenas no tendrán la misma longitud, pero pueden estar vacías (longitud cero).*/
+
+/* Desafio dia 8
+Dadas 2 cadenas, a y b, devuelve una cadena con la forma short+long+short, con la cadena más corta en el exterior y la cadena más larga en el interior. Las cadenas no tendrán la misma longitud, pero pueden estar vacías (longitud cero).*/
 function solution(a, b) {
   let cadena1 = a.length;
   let cadena2 = b.length;
@@ -181,10 +184,18 @@ function solution(a, b) {
     return `${a}${b}${a}`;
   }
 }
-console.log(solution("ar", "lom"));
+//console.log(solution("ar", "lom"));
 /*  otra manera de hacerlo 
 function solution(a, b) {
   return a.length < b.length ? a + b + a : b + a + b
 }
   console.log(solution("ar", "lom"));
 */
+/* Desafio numero 9
+ Le preguntas a una niña pequeña: "¿Qué edad tienes?". Ella siempre responde: "x años", donde x es un número aleatorio entre 0 y 9. Escribe un programa que devuelva la edad de la niña (0-9) como un entero.
+
+Supón que la cadena de entrada de prueba siempre es una cadena válida. Por ejemplo, la entrada de prueba puede ser "1 año" o "5 años". El primer carácter de la cadena siempre es un número.*/
+function getAge(inputString) {
+  return Number(inputString[0]);
+}
+console.log(getAge("9 años"));
