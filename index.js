@@ -198,4 +198,20 @@ Supón que la cadena de entrada de prueba siempre es una cadena válida. Por eje
 function getAge(inputString) {
   return Number(inputString[0]);
 }
-console.log(getAge("9 años"));
+//console.log(getAge("9 años"));
+
+// NIVEL 7
+
+/*Desafio dia 10
+Se le proporciona un diccionario/hash/objeto que contiene algunos idiomas y los resultados de su prueba en los idiomas indicados. Devuelve la lista de idiomas en los que su puntuación en la prueba es al menos 60, en orden descendente de las puntuaciones.
+
+Nota: las puntuaciones siempre serán únicas (por lo que no habrá valores duplicados)	
+{"Java": 10, "Ruby": 80, "Python": 65}    -->  ["Ruby", "Python"]
+{"Hindi": 60, "Dutch" : 93, "Greek": 71}  -->  ["Dutch", "Greek", "Hindi"]
+{"C++": 50, "ASM": 10, "Haskell": 20}     -->  [] */
+
+function myLanguages(results) {
+  let menos60 = Object.keys(results).filter((clave) => results[clave] >= 60);
+  return menos60.sort((a, b) => results[b] - results[a]);
+}
+console.log(myLanguages({ Hindi: 60, Greek: 71, Dutch: 93 }));
