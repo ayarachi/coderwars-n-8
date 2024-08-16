@@ -214,4 +214,13 @@ function myLanguages(results) {
   let menos60 = Object.keys(results).filter((clave) => results[clave] >= 60);
   return menos60.sort((a, b) => results[b] - results[a]);
 }
-console.log(myLanguages({ Hindi: 60, Greek: 71, Dutch: 93 }));
+//console.log(myLanguages({ Hindi: 60, Greek: 71, Dutch: 93 }));
+
+/* Desafio dia  11
+Crea un programa que filtre una lista de cadenas y devuelva una lista que solo contenga el nombre de tus amigos.
+
+Si un nombre tiene exactamente 4 letras, puedes estar seguro de que debe ser un amigo tuyo. De lo contrario, puedes estar seguro de que no lo es... */
+function friend(friends) {
+  return friends.filter((element) => element.length === 4);
+}
+console.log(friend(["Ryan", "Kieran", "Mark"]));
