@@ -223,4 +223,34 @@ Si un nombre tiene exactamente 4 letras, puedes estar seguro de que debe ser un 
 function friend(friends) {
   return friends.filter((element) => element.length === 4);
 }
-console.log(friend(["Ryan", "Kieran", "Mark"]));
+//console.log(friend(["Ryan", "Kieran", "Mark"]));
+/* Escriba una función que duplique cada segundo entero de una lista, comenzando desde la izquierda.
+
+Ejemplo:
+[1,2,3,4]
+[1,4,3,8]
+
+Para una matriz/lista de entrada:*/
+function doubleEveryOther(a) {
+  let resultado = [];
+  for (let i = a.length - 1; i >= 0; i--) {
+    let element = a[i];
+    console.log(element);
+    if (i % 2 != 0) {
+      let doble = element * 2;
+      resultado.push(doble);
+      //console.log(doble);
+    } else {
+      resultado.push(element);
+    }
+  }
+  return resultado.reverse();
+}
+// Esta es otra solucion para revisar
+console.log(doubleEveryOther([1, 2, 3, 4]));
+function doubleEveryOther(a) {
+  for (let i = 1; i < a.length; i += 2) {
+    a[i] *= 2;
+  }
+  return a;
+}
