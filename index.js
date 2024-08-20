@@ -224,7 +224,9 @@ function friend(friends) {
   return friends.filter((element) => element.length === 4);
 }
 //console.log(friend(["Ryan", "Kieran", "Mark"]));
-/* Escriba una función que duplique cada segundo entero de una lista, comenzando desde la izquierda.
+
+/* DESAFIO DIA 12 
+Escriba una función que duplique cada segundo entero de una lista, comenzando desde la izquierda.
 
 Ejemplo:
 [1,2,3,4]
@@ -246,11 +248,55 @@ function doubleEveryOther(a) {
   }
   return resultado.reverse();
 }
-// Esta es otra solucion para revisar
-console.log(doubleEveryOther([1, 2, 3, 4]));
+
+//console.log(doubleEveryOther([1, 2, 3, 4]));
+// Esta es otra solucion, debes entender bien esta funcion porque es bien simple.
 function doubleEveryOther(a) {
   for (let i = 1; i < a.length; i += 2) {
     a[i] *= 2;
   }
   return a;
 }
+//console.log(doubleEveryOther([1, 2, 3, 4]));
+
+/* DESAFIO DIA 13
+Tu tarea es crear una función que pueda tomar cualquier número entero no negativo como argumento y devolverlo con sus dígitos en orden descendente. Básicamente, reorganiza los dígitos para crear el número más alto posible.
+Input: 42145 Output: 54421
+
+Input: 145263 Output: 654321
+
+Input: 123456789 Output: 987654321
+*/
+function descendingOrder(n) {
+  return parseInt(String(n).split("").sort().reverse().join(""));
+}
+
+console.log(descendingOrder(42145));
+/* Paso a paso:
+String(n):
+
+Convierte el número n en una cadena de texto.
+Por ejemplo, si n es 42145, String(n) convierte este número en la cadena "42145".
+.split(''):
+
+Convierte la cadena en un array de caracteres (dígitos).
+"42145".split('') convierte la cadena en el array ['4', '2', '1', '4', '5'].
+.sort():
+
+Ordena los elementos del array en orden ascendente (alfabéticamente).
+['4', '2', '1', '4', '5'].sort() ordena los dígitos como ['1', '2', '4', '4', '5'].
+.reverse():
+
+Invierte el orden de los elementos en el array, colocando los elementos en orden descendente.
+['1', '2', '4', '4', '5'].reverse() cambia el orden a ['5', '4', '4', '2', '1'].
+.join(''):
+
+Combina los elementos del array de nuevo en una sola cadena.
+['5', '4', '4', '2', '1'].join('') convierte el array en la cadena "54421".
+parseInt(..., 10):
+
+Convierte la cadena de texto resultante de nuevo en un número entero.
+parseInt("54421", 10) convierte la cadena "54421" en el número 54421.
+Resultado:
+La función completa toma un número, ordena sus dígitos en orden descendente y luego lo convierte de nuevo en un número entero.
+*/
