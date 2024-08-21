@@ -271,7 +271,7 @@ function descendingOrder(n) {
   return parseInt(String(n).split("").sort().reverse().join(""));
 }
 
-console.log(descendingOrder(42145));
+//console.log(descendingOrder(42145));
 /* Paso a paso:
 String(n):
 
@@ -300,3 +300,39 @@ parseInt("54421", 10) convierte la cadena "54421" en el número 54421.
 Resultado:
 La función completa toma un número, ordena sus dígitos en orden descendente y luego lo convierte de nuevo en un número entero.
 */
+
+/*  Desafío dia 14
+let contador = 0;
+for (let i = 0; a > b; i++) {
+  let nuevoCuadrado = a - b;
+  a = nuevoCuadrado;
+  contador += 1;
+}
+return contador;
+
+
+*/
+function folding(a, b) {
+  let contador = 1;
+  while (a !== b) {
+    console.log(`a=${a} b=${b}`);
+    let temporario;
+
+    // Ordenar los valores
+    if (a < b) {
+      temporario = a;
+      a = b;
+      b = temporario;
+    }
+
+    // Calcular los valores nuevos
+    temporario = a;
+    a = b;
+    b = temporario - b;
+
+    contador += 1;
+    if (contador > 10) return;
+  }
+  return contador;
+}
+console.log(folding(10, 7));
