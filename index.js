@@ -302,13 +302,19 @@ La función completa toma un número, ordena sus dígitos en orden descendente y
 */
 
 /*  Desafío dia 14
-let contador = 0;
-for (let i = 0; a > b; i++) {
-  let nuevoCuadrado = a - b;
-  a = nuevoCuadrado;
-  contador += 1;
-}
-return contador;
+John estaba en clase de matemáticas y se aburrió, así que decidió doblar un origami a partir de una hoja de papel rectangular a × b (a > b). Su primer paso es hacer un trozo de papel cuadrado a partir del trozo de papel rectangular inicial doblando la hoja a lo largo de la bisectriz del ángulo recto y cortando la parte sobrante.
+Después de mover el trozo de papel cuadrado a un lado, John quería hacer aún más cuadrados. Tomó la tira de papel restante (a-b) × b y continuó con el proceso hasta que le quedó un trozo de papel cuadrado.
+
+Tu tarea es determinar cuántos trozos de papel cuadrados puede hacer John. Para: a = 2, b = 1, el resultado debería ser 2.
+
+Dado a = 2 y b = 1, John puede doblar un 1 × 1 y luego otro 1 × 1.
+
+Por lo tanto, la respuesta es 2.
+
+Para: a = 10, b = 7, el resultado debería ser 6.
+
+Tenemos a = 10 y b = 7. El siguiente es el orden de los cuadrados que dobla John: 7 × 7, 3 × 3, 3 × 3, 1 × 1, 1 × 1 y 1 × 1.
+
 
 
 */
@@ -331,8 +337,29 @@ function folding(a, b) {
     b = temporario - b;
 
     contador += 1;
-    if (contador > 10) return;
+    if (contador > 10);
   }
   return contador;
 }
-console.log(folding(10, 7));
+//console.log(folding(1000, 999));
+// Esta es otra manera de resolverla que tengo que leer el codigo e intentar entenderlo
+function folding(a, b) {
+  if (b == 0) {
+    return 0;
+  } else {
+    return 1 + folding(Math.max(b, a - b), Math.min(b, a - b));
+  }
+}
+//console.log(folding(1000, 999));
+
+/*Desafio dia 15
+Historia Ben tiene una idea muy simple para obtener ganancias: compra algo y lo vende nuevamente. Por supuesto, esto no le daría ninguna ganancia si simplemente lo comprara y lo vendiera al mismo precio. En cambio, lo comprará al precio más bajo posible y lo venderá al más alto.
+
+Tarea Escribe una función que devuelva tanto el número mínimo como el máximo de la lista/matriz dada.
+
+Ejemplos (Entrada --> Salida) [1,2,3,4,5] --> [1,5] [2334454,5] --> [5,2334454] [1] --> [1,1 ] Observaciones Todas las matrices o listas siempre tendrán al menos un elemento, por lo que no es necesario verificar la longitud. Además, tu función siempre obtendrá una matriz o una lista, no tienes que verificar si es nula, indefinida o similar.
+ */
+function minMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
+}
+console.log(minMax([1, 2, 3, 4, 5]));
