@@ -362,4 +362,17 @@ Ejemplos (Entrada --> Salida) [1,2,3,4,5] --> [1,5] [2334454,5] --> [5,2334454] 
 function minMax(arr) {
   return [Math.min(...arr), Math.max(...arr)];
 }
-console.log(minMax([1, 2, 3, 4, 5]));
+//console.log(minMax([1, 2, 3, 4, 5]));
+/* Desafio dia 16
+En esta pequeña tarea, se le proporciona una cadena de números separados por espacios y debe devolver el número más alto y el más bajo.
+
+Ejemplos highAndLow("1 2 3 4 5"); // devolver "5 1" highAndLow("1 2 -3 4 5"); // devolver "5 -3" highAndLow("1 9 3 4 -5"); // devolver "9 -5" Notas Todos los números son Int32 válidos, no es necesario validarlos.
+Siempre habrá al menos un número en la cadena de entrada.
+La cadena de salida debe estar formada por dos números separados por un solo espacio y el número más alto es el primero. */
+
+function highAndLow(numbers) {
+  let arr = numbers.split(" ");
+
+  return [Math.max(...arr), Math.min(...arr)].join("");
+}
+console.log(highAndLow("1 2 -3 4 5"));
