@@ -373,6 +373,37 @@ La cadena de salida debe estar formada por dos números separados por un solo es
 function highAndLow(numbers) {
   let arr = numbers.split(" ");
 
-  return [Math.max(...arr), Math.min(...arr)].join("");
+  return [Math.max(...arr), Math.min(...arr)].join(" ");
 }
-console.log(highAndLow("1 2 -3 4 5"));
+//console.log(highAndLow("1 2 -3 4 5"));
+
+/* DESAFIO 17
+Crea una función que tome un número y devuelva una matriz de cadenas que contengan el número cortado en cada dígito.
+
+Ejemplos
+420 debería devolver ["4", "42", "420"]
+2017 debería devolver ["2", "20", "201", "2017"]
+2010 debería devolver ["2", "20", "201", "2010"]
+4020 debería devolver ["4", "40", "402", "4020"]
+80200 debería devolver ["8", "80", "802", "8020", "80200"]
+PD: Se garantiza que la entrada sea un número entero en el rango [0, 1000000] */
+function createArrayOfTiers(num) {
+  let string = num.toString();
+  let acumulador = "";
+  let resultado = [];
+
+  for (let i = 0; i < string.length; i++) {
+    acumulador += string[i];
+    resultado.push(acumulador);
+  }
+  return resultado;
+}
+console.log(createArrayOfTiers(420));
+
+/*otra manera de hacer el mismo ejerccio de arriba
+function createArrayOfTiers(num) {
+  let prev = '';
+  return [...num + ''].map((value) => {
+      return prev += value;
+  });
+}*/
