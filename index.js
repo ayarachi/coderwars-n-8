@@ -398,7 +398,7 @@ function createArrayOfTiers(num) {
   }
   return resultado;
 }
-console.log(createArrayOfTiers(420));
+//console.log(createArrayOfTiers(420));
 
 /*otra manera de hacer el mismo ejerccio de arriba
 function createArrayOfTiers(num) {
@@ -407,3 +407,26 @@ function createArrayOfTiers(num) {
       return prev += value;
   });
 }*/
+
+/* Su tarea es crear una función que, dada una secuencia y un predicado, devuelva Verdadero si solo algunos (pero no todos) los elementos de la secuencia son Verdaderos después de aplicar el predicado Ejemplos ('abcdefg&%$', x -> isLetter(x )) == true ('&%$=', x -> isLetter x) == false ('abcdefg', x -> isLetter x) == false ([4, 1], x -> x > 3) == true ([1, 1], x -> x > 3) == false ([4, 4], x -> x > 3) == false
+es letra */
+
+const someButNotAll = (seq, pred) => {
+  const arr = Array.from(seq);
+
+  return arr.some(pred) && !arr.every(pred);
+};
+
+console.log(someButNotAll([4, 1], (x) => x > 3));
+/* ¿Por qué Array.from es más adecuado en este caso?
+Generalidad: Array.from funciona con cualquier objeto iterable, no solo con strings. Esto es crucial en una función como someButNotAll, donde seq puede ser un string, un array, o algún otro tipo de colección iterable.
+
+Consistencia: Usando Array.from, aseguras que seq siempre se convierta en un array sin importar su tipo original, lo que te permite aplicar los métodos de array (some, every, etc.) de manera uniforme.
+
+Combinación de some() y every():
+Para determinar si solo algunos elementos cumplen el predicado y no todos, puedes combinar some() y every():
+Lógica:
+some() verifica si al menos un elemento cumple el predicado.Resultado: true si al menos un elemento cumple el predicado, false si ninguno lo cumple.
+every() verifica si todos los elementos cumplen el predicado.Resultado: true si todos los elementos cumplen el predicado, false si al menos uno no lo cumple.
+Para que solo algunos cumplan, necesitas que some() sea true y every() sea false.
+*/
