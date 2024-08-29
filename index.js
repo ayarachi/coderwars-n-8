@@ -408,7 +408,8 @@ function createArrayOfTiers(num) {
   });
 }*/
 
-/* Su tarea es crear una función que, dada una secuencia y un predicado, devuelva Verdadero si solo algunos (pero no todos) los elementos de la secuencia son Verdaderos después de aplicar el predicado Ejemplos ('abcdefg&%$', x -> isLetter(x )) == true ('&%$=', x -> isLetter x) == false ('abcdefg', x -> isLetter x) == false ([4, 1], x -> x > 3) == true ([1, 1], x -> x > 3) == false ([4, 4], x -> x > 3) == false
+/* EJERCICIO DIA 18
+Su tarea es crear una función que, dada una secuencia y un predicado, devuelva Verdadero si solo algunos (pero no todos) los elementos de la secuencia son Verdaderos después de aplicar el predicado Ejemplos ('abcdefg&%$', x -> isLetter(x )) == true ('&%$=', x -> isLetter x) == false ('abcdefg', x -> isLetter x) == false ([4, 1], x -> x > 3) == true ([1, 1], x -> x > 3) == false ([4, 4], x -> x > 3) == false
 es letra */
 
 const someButNotAll = (seq, pred) => {
@@ -417,7 +418,7 @@ const someButNotAll = (seq, pred) => {
   return arr.some(pred) && !arr.every(pred);
 };
 
-console.log(someButNotAll([4, 1], (x) => x > 3));
+//console.log(someButNotAll([4, 1], (x) => x > 3));
 /* ¿Por qué Array.from es más adecuado en este caso?
 Generalidad: Array.from funciona con cualquier objeto iterable, no solo con strings. Esto es crucial en una función como someButNotAll, donde seq puede ser un string, un array, o algún otro tipo de colección iterable.
 
@@ -430,3 +431,42 @@ some() verifica si al menos un elemento cumple el predicado.Resultado: true si a
 every() verifica si todos los elementos cumplen el predicado.Resultado: true si todos los elementos cumplen el predicado, false si al menos uno no lo cumple.
 Para que solo algunos cumplan, necesitas que some() sea true y every() sea false.
 */
+
+/* EJERCICIO DIA 19
+Su tarea consiste en escribir una función que devuelva la suma de una secuencia de números enteros.
+
+La secuencia está definida por 3 valores no negativos: inicio, fin, paso.
+
+Si el valor de inicio es mayor que el valor de fin, su función debe devolver 0. Si el valor de fin no es el resultado de un número entero de pasos, entonces no lo agregue a la suma. Vea el cuarto ejemplo a continuación.
+
+Ejemplos 2,2,2 --> 2 2,6,2 --> 12 (2 + 4 + 6) 1,5,1 --> 15 (1 + 2 + 3 + 4 + 5) 1,5, 3 --> 5 (1 + 4)
+*/
+const sequenceSum = (begin, end, step) => {
+  let arr = [];
+
+  for (let i = begin; i <= end; i += step) {
+    arr.push(i);
+  }
+
+  console.log(arr); // Para ver la secuencia generada
+  return arr.reduce((acc, current) => acc + current, 0); // Suma los números y devuelve la suma
+};
+
+console.log(sequenceSum(2, 6, 2)); // Debería devolver 12
+/*Explicación del Código
+Generar la Secuencia:
+
+El bucle for comienza en begin y, en cada iteración, suma step al índice i.
+Si i es menor o igual a end, el número i se agrega al array arr.
+Almacenar los Números:
+
+Cada número generado en la secuencia se empuja (push) al array arr.
+Por ejemplo, si begin = 2, end = 6, y step = 2, el array arr será [2, 4, 6].
+Sumar los Números:
+
+El método reduce se utiliza para sumar todos los elementos en arr.
+La función reduce toma un acumulador (acc) y el valor actual (current), sumando ambos y retornando el total.
+Resultado:
+
+El resultado devuelto por sequenceSum(2, 6, 2) será 12, ya que la secuencia generada es [2, 4, 6] y la suma de esos números es 12.
+Resumen */
