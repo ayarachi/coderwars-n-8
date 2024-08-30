@@ -470,3 +470,20 @@ Resultado:
 
 El resultado devuelto por sequenceSum(2, 6, 2) será 12, ya que la secuencia generada es [2, 4, 6] y la suma de esos números es 12.
 Resumen */
+
+/*Ejercicio dia 20
+¡Hazme lento! Llamar a makeMeSlow() debería tardar al menos 7 segundos. */
+
+function makeMeSlow() {
+  const startTime = Date.now(); // Tiempo de inicio
+  while (Date.now() - startTime < 7000) {
+    // Sigue en este bucle hasta que hayan pasado 7 segundos
+  }
+}
+/* ¿Qué hace esto?: Este es un bucle while, que es un tipo de bucle que continúa ejecutándose mientras la condición dentro del paréntesis sea verdadera.
+¿Cuál es la condición?: Date.now() - startTime < 7000
+Date.now(): Devuelve el tiempo actual (en milisegundos) en el momento en que se llama.
+Date.now() - startTime: Esto calcula cuántos milisegundos han pasado desde que guardaste startTime.
+< 7000: El bucle continúa ejecutándose mientras hayan pasado menos de 7000 milisegundos (o 7 segundos) desde el inicio de la función.
+
+*/
