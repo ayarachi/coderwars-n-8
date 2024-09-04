@@ -452,7 +452,7 @@ const sequenceSum = (begin, end, step) => {
   return arr.reduce((acc, current) => acc + current, 0); // Suma los números y devuelve la suma
 };
 
-console.log(sequenceSum(2, 6, 2)); // Debería devolver 12
+//console.log(sequenceSum(2, 6, 2)); // Debería devolver 12
 /*Explicación del Código
 Generar la Secuencia:
 
@@ -487,3 +487,100 @@ Date.now() - startTime: Esto calcula cuántos milisegundos han pasado desde que 
 < 7000: El bucle continúa ejecutándose mientras hayan pasado menos de 7000 milisegundos (o 7 segundos) desde el inicio de la función.
 
 */
+/* DIA 22
+La siguiente es una pregunta que recibí durante una entrevista técnica para un puesto de desarrollador de software de nivel inicial. Pensé en publicarla aquí para que todos pudieran intentarlo:
+
+Se le proporciona una matriz desordenada que contiene todos los números enteros del 0 al 100 inclusive. Sin embargo, falta un número. Escriba una función para encontrar y devolver este número. ¿Cuáles son las complejidades de tiempo y espacio de su solución?
+lo  que recibo es una matriz de números entonces podria iterarla */
+function missingNo(nums) {
+  const n = 100;
+  const expectedSum = (n * (n + 1)) / 2;
+  let sumaActual = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sumaActual += nums[i];
+  }
+  return expectedSum - sumaActual;
+}
+/* Esta es otra resolución encontrada en coderwars, revisar El método reduce:
+
+¿Qué hace reduce?: El método reduce se utiliza para aplicar una función a cada elemento de un array (en este caso, la suma) y reducir la matriz a un solo valor.
+En este caso: reduce está sumando todos los elementos del array nums.
+Parámetros de reduce:
+(a, b): a es el acumulador, que guarda el valor acumulado de la suma a medida que el método avanza por la matriz.
+b: es el valor actual del elemento de la matriz que está siendo procesado.
+0: Es el valor inicial del acumulador a. Especifica que la suma comienza desde 0.*/
+
+function missingNo(nums) {
+  return 5050 - nums.reduce((a, b) => a + b, 0);
+}
+
+/*console.log(
+  missingNo([
+    9, 45, 53, 10, 100, 30, 85, 72, 69, 93, 98, 27, 73, 82, 91, 60, 5, 79, 88,
+    18, 71, 36, 44, 22, 89, 40, 59, 80, 81, 67, 25, 54, 13, 64, 56, 39, 48, 92,
+    84, 94, 87, 90, 77, 63, 32, 68, 37, 96, 23, 0, 95, 1, 52, 78, 6, 57, 50, 2,
+    46, 19, 76, 47, 14, 4, 3, 29, 17, 11, 21, 24, 74, 65, 12, 83, 28, 41, 66, 7,
+    58, 55, 51, 43, 97, 42, 86, 49, 31, 20, 75, 70, 34, 33, 38, 8, 15, 62, 35,
+    61, 99, 16,
+  ])
+);*/
+/* DIA 23
+Escriba una función, isItLetter o is_it_letter o IsItLetter, que nos diga si un carácter dado es una letra o no.*/
+function isItLetter(character) {
+  if (typeof character != "string") {
+    return false;
+  }
+  let letra = character.toUpperCase().charCodeAt(0);
+  return letra > 64 && letra < 91;
+}
+
+/*Otra solucion de coderwars
+
+function isItLetter(character) {
+  return /[a-z]/i.test(character);
+}
+  Explicación de la Expresión Regular [a-z]/i
+/[a-z]/: Esta es la expresión regular en sí misma.
+[a-z]: Define un rango de caracteres. En este caso, cualquier letra minúscula desde a hasta z.
+a-z: Incluye todas las letras minúsculas del alfabeto inglés (a, b, c, ..., z).
+/i: Esta es una bandera que se coloca al final de la expresión regular.
+i: Significa "insensitive", lo que indica que la búsqueda no distingue entre mayúsculas y minúsculas. Es decir, también coincidirá con letras mayúsculas (A-Z), además de las minúsculas (a-z).
+Método test()
+test(character): Este método se utiliza para comprobar si la expresión regular coincide con el contenido de character.
+Devuelve: true si character contiene una letra del alfabeto inglés (ya sea mayúscula o minúscula), o false si no la contiene.*/
+//console.log(isItLetter(2));
+
+/* DIA 24 
+ contenía todos los números enteros del 0 al 9 (sin ningún orden en particular), pero parece que falta uno de ellos.
+Escribe una función que acepte una secuencia de números enteros únicos entre 0 y 9 (inclusive) y devuelva el elemento faltante.
+Fórmula General:
+Puedes usar la fórmula para la suma de una secuencia aritmética:
+
+Suma= 
+n⋅(n+1) todo esto /2
+​Donde:
+n es el último número de la secuencia (en este caso, 
+n=9).
+Aplicando la fórmula: Suma= 
+9⋅(9+1)
+
+9⋅10 /2 =45
+ 
+Donde:
+*/
+function getMissingElement(superImportantArray) {
+  const n = 9;
+  const expectedSum = (n * (n + 1)) / 2;
+  let sumaActual = 0;
+  for (let i = 0; i < superImportantArray.length; i++) {
+    sumaActual += superImportantArray[i];
+  }
+  return expectedSum - sumaActual;
+}
+console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
+/*  otra manera de resolverolo 
+function getMissingElement(superImportantArray){
+  for (i = 0; i < 10; i++) {
+    if (superImportantArray.indexOf(i) === -1) return i;
+  }
+}*/
