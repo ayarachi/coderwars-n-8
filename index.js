@@ -577,10 +577,31 @@ function getMissingElement(superImportantArray) {
   }
   return expectedSum - sumaActual;
 }
-console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
+//console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
 /*  otra manera de resolverolo 
 function getMissingElement(superImportantArray){
   for (i = 0; i < 10; i++) {
     if (superImportantArray.indexOf(i) === -1) return i;
   }
 }*/
+/*DIA 25 
+Encuentra el último elemento de los argumentos dados. Si se pasa un único argumento y es una lista/matriz o una cadena, devuelve su último elemento. Se garantiza que habrá al menos un argumento y que las matrices/listas/cadenas de un único argumento no estarán vacías.*/
+function last(...args) {
+  // Caso 1: Si hay un solo argumento
+  if (args.length === 1) {
+    const arg = args[0];
+    // Si el argumento es un array o una cadena, devolver su último elemento
+    if (Array.isArray(arg) || typeof arg === "string") {
+      return arg[arg.length - 1];
+    } else {
+      // Si es un número u otro tipo no iterable, devolverlo tal cual
+      return arg;
+    }
+  }
+  // Caso 2: Si hay múltiples argumentos, devolver el último argumento
+  else {
+    return args[args.length - 1];
+  }
+}
+
+console.log(last([1, 2, 3]));
