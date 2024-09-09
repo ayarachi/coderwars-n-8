@@ -604,4 +604,56 @@ function last(...args) {
   }
 }
 
-console.log(last([1, 2, 3]));
+//console.log(last([1, 2, 3]));
+//El dia 26 me tocaba un viernes y no realicé mi ejrcicio diario
+
+/* Comencemos con un ejemplo:
+
+Tomemos un número: 56789. Gírelo hacia la izquierda y obtendrá 67895.
+
+Mantenga el primer dígito en su lugar y gire hacia la izquierda los demás dígitos: 68957.
+
+Mantenga los dos primeros dígitos en su lugar y gire los demás: 68579.
+
+Mantenga los tres primeros dígitos y gire hacia la izquierda el resto: 68597. Ahora se acabó, ya que al mantener los primeros cuatro, solo queda un dígito que, girado, es él mismo.
+
+Tiene la siguiente secuencia de números:
+
+56789 -> 67895 -> 68957 -> 68579 -> 68597
+
+y debe devolver el mayor: 68957.
+
+Tarea
+Escriba la función max_rot(n) que, dado un entero positivo n, devuelva el número máximo que obtuvo al realizar rotaciones similares al ejemplo anterior.
+o max_rot (o maxRot o ... según el idioma) es como:
+
+max_rot(56789) debería devolver 68957
+
+max_rot(38458215) debería devolver 85821534
+
+el método splice(i, 1) elimina el dígito en la posición i. Al usar [0], obtienes el primer (y único) elemento eliminado.
+Esto efectivamente mueve el dígito de la posición i al final del array.*/
+function maxRot(n) {
+  let arrNum = n.toString().split("");
+  let maxNumber = n; // Almacena el número original como el número más grande inicial
+
+  for (let i = 0; i < arrNum.length - 1; i++) {
+    // Toma el dígito en la posición i y muévelo al final del array
+    let elemento1 = arrNum.splice(i, 1)[0]; // Elimina el elemento en la posición i
+    console.log(
+      elemento1,
+      "=> soy elem 1 me has aplicado slice arrNum.splice(i, 1)[0]"
+    );
+    arrNum.push(elemento1); // Añade el elemento eliminado al final
+    console.log(elemento1, "=> soy elem 1 me has aplicado push");
+    // Convierte el array en un número
+    let newNumber = parseInt(arrNum.join(""));
+    console.log(newNumber, "=>soy newNumber me has aplicado parseint");
+    // Compara con el máximo actual y actualiza si es mayor
+    if (newNumber > maxNumber) {
+      maxNumber = newNumber;
+    }
+  }
+  return maxNumber; // Devuelve el número más grande encontrado
+}
+console.log(maxRot(56789));
