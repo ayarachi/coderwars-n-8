@@ -607,7 +607,8 @@ function last(...args) {
 //console.log(last([1, 2, 3]));
 //El dia 26 me tocaba un viernes y no realicé mi ejrcicio diario
 
-/* Comencemos con un ejemplo:
+/* DIA 26
+Comencemos con un ejemplo:
 
 Tomemos un número: 56789. Gírelo hacia la izquierda y obtendrá 67895.
 
@@ -656,4 +657,12 @@ function maxRot(n) {
   }
   return maxNumber; // Devuelve el número más grande encontrado
 }
-console.log(maxRot(56789));
+//console.log(maxRot(56789));
+
+/*DIA 27
+Implement a function that returns the minimal and the maximal value of a list (in this order).*/
+function getMinMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+console.log(getMinMax([2, 1]));
