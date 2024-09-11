@@ -665,4 +665,77 @@ function getMinMax(arr) {
   return [Math.min(...arr), Math.max(...arr)];
 }
 
-console.log(getMinMax([2, 1]));
+//console.log(getMinMax([2, 1]));
+/*El zodíaco chino es un ciclo repetitivo de 12 años, en el que cada año está representado por un animal y sus atributos. El calendario lunar se divide en ciclos de 60 años cada uno, y cada año tiene una combinación de un animal y un elemento. Hay 12 animales y 5 elementos; los animales cambian cada año y los elementos cambian cada 2 años. El ciclo actual se inició en el año 1984, que fue el año de la Rata de Madera.
+
+Dado que el calendario actual es gregoriano, solo utilizaré años a partir de la época de 1924. Para simplificar, cuento el año como un año completo y no desde enero/febrero hasta el final del año.
+
+##Tarea
+
+Dado un año, devuelve el elemento y el animal que representa ese año ("Animal elemental"). Por ejemplo, nací en 1998, así que soy un "Tigre de tierra".
+
+animals (o $animals en Ruby) es una matriz precargada que contiene los animales en orden:
+
+['Rata', 'Buey', 'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra', 'Mono', 'Gallo', 'Perro', 'Cerdo']
+
+elements (o $elements en Ruby) es una matriz precargada que contiene los elementos en orden:
+
+['Madera', 'Fuego', 'Tierra', 'Metal', 'Agua']
+
+Explicacion de la solución Restar el año base:
+
+
+let añosInicioCiclo = year - 1984;
+Restamos 1984 (inicio del ciclo) al año ingresado para saber cuántos años han pasado desde entonces.
+Ciclo de animales (módulo 12):
+
+let divi = ((añosInicioCiclo % 12) + 12) % 12;
+let animal = animals[divi];
+Usamos el módulo 12 para encontrar el animal correspondiente dentro del ciclo de 12 años.
+Se asegura que el índice sea positivo sumando 12 y luego aplicando el módulo de nuevo.
+divi es el índice que determina el animal en la lista animals.
+Ciclo de elementos (módulo 10):
+
+
+let divi2 = ((añosInicioCiclo % 10) + 10) % 10;
+let element = elements[Math.floor(divi2 / 2)];
+Usamos el módulo 10 para obtener la posición dentro del ciclo de 10 años de los elementos.
+Math.floor(divi2 / 2) se utiliza para agrupar los elementos de 2 en 2, ya que cada elemento dura 2 años.
+Retornar el resultado:
+
+return `${element} ${animal}`;
+Combina el elemento y el animal en un string formateado y lo devuelve. */
+
+function chineseZodiac(year) {
+  const animals = [
+    "Rat",
+    "Ox",
+    "Tiger",
+    "Rabbit",
+    "Dragon",
+    "Snake",
+    "Horse",
+    "Goat",
+    "Monkey",
+    "Rooster",
+    "Dog",
+    "Pig",
+  ];
+  const elements = ["Wood", "Fire", "Earth", "Metal", "Water"];
+
+  let añosInicioCiclo = year - 1984;
+  let divi = ((añosInicioCiclo % 12) + 12) % 12;
+
+  let animal = animals[divi];
+
+  let divi2 = ((añosInicioCiclo % 10) + 10) % 10;
+
+  let element = elements[Math.floor(divi2 / 2)];
+
+  return `${element} ${animal}`;
+}
+console.log(chineseZodiac(1965));
+/* otra posible solucón
+function chineseZodiac(year){
+  return elements[Math.floor(((year-1924)%10)/2)]+' '+animals[(year-1924)%12];
+}*/
