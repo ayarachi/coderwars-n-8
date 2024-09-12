@@ -666,7 +666,9 @@ function getMinMax(arr) {
 }
 
 //console.log(getMinMax([2, 1]));
-/*El zodíaco chino es un ciclo repetitivo de 12 años, en el que cada año está representado por un animal y sus atributos. El calendario lunar se divide en ciclos de 60 años cada uno, y cada año tiene una combinación de un animal y un elemento. Hay 12 animales y 5 elementos; los animales cambian cada año y los elementos cambian cada 2 años. El ciclo actual se inició en el año 1984, que fue el año de la Rata de Madera.
+
+/*DIA 28
+El zodíaco chino es un ciclo repetitivo de 12 años, en el que cada año está representado por un animal y sus atributos. El calendario lunar se divide en ciclos de 60 años cada uno, y cada año tiene una combinación de un animal y un elemento. Hay 12 animales y 5 elementos; los animales cambian cada año y los elementos cambian cada 2 años. El ciclo actual se inició en el año 1984, que fue el año de la Rata de Madera.
 
 Dado que el calendario actual es gregoriano, solo utilizaré años a partir de la época de 1924. Para simplificar, cuento el año como un año completo y no desde enero/febrero hasta el final del año.
 
@@ -687,16 +689,15 @@ Explicacion de la solución Restar el año base:
 
 let añosInicioCiclo = year - 1984;
 Restamos 1984 (inicio del ciclo) al año ingresado para saber cuántos años han pasado desde entonces.
-Ciclo de animales (módulo 12):
 
+Ciclo de animales (módulo 12):
 let divi = ((añosInicioCiclo % 12) + 12) % 12;
 let animal = animals[divi];
 Usamos el módulo 12 para encontrar el animal correspondiente dentro del ciclo de 12 años.
 Se asegura que el índice sea positivo sumando 12 y luego aplicando el módulo de nuevo.
 divi es el índice que determina el animal en la lista animals.
+
 Ciclo de elementos (módulo 10):
-
-
 let divi2 = ((añosInicioCiclo % 10) + 10) % 10;
 let element = elements[Math.floor(divi2 / 2)];
 Usamos el módulo 10 para obtener la posición dentro del ciclo de 10 años de los elementos.
@@ -739,3 +740,41 @@ console.log(chineseZodiac(1965));
 function chineseZodiac(year){
   return elements[Math.floor(((year-1924)%10)/2)]+' '+animals[(year-1924)%12];
 }*/
+
+/*Dia 29
+Se le proporcionará una función, isFibo, que tomará tres argumentos: a, b y f.
+
+a es el primer término de una secuencia de Fibonacci, b es el segundo término de esta secuencia (siempre será mayor o igual que a y ambos serán siempre positivos, así que no se preocupe por la molesta comprobación de entrada) y f es un número que deberá comprobar si es o no parte de esta secuencia de Fibonacci.
+Fibonacci es una sucesión matemática muy famosa donde cada número es la suma de los dos números anteriores.
+La secuencia comienza generalmente con los números 0 y 1, y luego continúa de la siguiente manera:
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+
+
+ */
+function isFibo(a, b, f) {
+  if (f === a || f === b) {
+    return true;
+  }
+  let num1 = a;
+  let num2 = b;
+  while (num2 <= f) {
+    if (num2 === f) {
+      return true;
+    }
+    let next = num1 + num2;
+    num1 = num2;
+    num2 = next;
+  }
+  return false;
+}
+console.log(isFibo(1, 4, 10));
+
+/*La secuencia de Fibonacci personalizada a partir de 1 y 4 es: 1, 4, 5, 9, 14, ....
+Como el número 10 no aparece en esta secuencia, la función devuelve false.
+Solución encontrada en coderwars
+
+function isFibo(a,b,f) {
+  while( a < f ){ [a,b] = [b, a+b] }
+  return a==f
+} */
