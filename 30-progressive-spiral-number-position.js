@@ -11,10 +11,13 @@ Advertencia: siempre y solo obtendrás números enteros positivos, ¡pero prepá
 
  */
 function layers(n) {
+  if (n <= 0) {
+    throw new Error("n debe ser mayor o igual a 1");
+  }
   // Empezamos con el primer número impar
   let layer = 1;
   // El cuadrado del primer número impar es 1 (1^2)
-  let k = 1; // primer número impar
+  let k = 1; // indica el fin de la primera capa
   // Continuar hasta encontrar un cuadrado mayor o igual que n
   while (k * k < n) {
     // Aumentamos el número impar en 2 para obtener el siguiente impar
