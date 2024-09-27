@@ -34,4 +34,32 @@ i: Significa insensible a mayúsculas y minúsculas (case-insensitive). Esto per
 
 Resultado: La función devuelve una nueva cadena donde todas las instancias de la palabra "café" (en cualquier forma de mayúsculas o minúsculas) han sido reemplazadas por "CAFÉ".
 
- */
+EXPRESIONES REGULARES 
+Las expresiones regulares son una forma de definir patrones para buscar, validar, y manipular texto.
+Son muy útiles para realizar tareas complejas de búsqueda y reemplazo.
+Componentes clave de una expresión regular
+Límites (\b):
+
+Sirven para delimitar el principio o el final de una palabra. Por ejemplo, \bcafé\b solo coincide con "café" como palabra completa, no con "cafetería" o "CaféLatte".
+Modificadores (flags):
+
+g (global): Busca todas las coincidencias, no solo la primera.
+i (insensitive): Ignora mayúsculas y minúsculas durante la búsqueda.
+m (multilínea): Permite que las expresiones regulares trabajen sobre múltiples líneas.
+Metacaracteres: Estos caracteres tienen un significado especial y te ayudan a construir patrones más avanzados:
+
+. (punto): Coincide con cualquier carácter excepto saltos de línea.
+\d: Coincide con cualquier dígito (número del 0 al 9).
+\w: Coincide con cualquier letra, número o guion bajo (palabras).
+\s: Coincide con cualquier espacio en blanco (espacio, tabulación, salto de línea).
+Cuantificadores:
+
+*: Coincide con cero o más repeticiones del patrón anterior.
++: Coincide con uno o más repeticiones.
+?: Coincide con cero o uno (opcional).
+{n}: Coincide con exactamente n repeticiones.
+Grupos y alternancias:
+
+Paréntesis (): Permiten agrupar partes de la expresión regular.
+| (alternancia): Sirve para representar "o" en las coincidencias. Por ejemplo, gato|perro coincide con "gato" o "perro".
+*/
