@@ -21,5 +21,5 @@ function countRedBeads(n) {
 /*otra solución de coderwar
 function countRedBeads(n) {
   return n < 2 ? 0 : 2 * n - 2;
-}
+
 */
