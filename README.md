@@ -13,9 +13,10 @@ En este repositorio realizo prácticas diarias de problemas de lógica.
    git checkout -b <dia>-<nombre>
    ```
 1. Crear para cada ejercicio un archivo nuevo js.
-   ```
+   ````
    touch <dia>-<nombre>.js
-   ```
+   ```it commit
+   ````
 1. Hacer el ejercicio
 1. Añadir a GitHub
    ```
@@ -27,10 +28,10 @@ En este repositorio realizo prácticas diarias de problemas de lógica.
 1. Ir a GitHub y crear un pull request y asignar a alguien para revisar.
 1. Responder a los comentarios de la revisión y hacer las modificaciones necesarias al código.
 1. Si haces cambios se debe repetir el proceso de añadir a GitHub
-1. Si todo esta listo en GitHub hacer merge y borar la rama en Github.
+1. Si todo esta listo en GitHub hacer merge y borar la rama en Githubgit .
 1. En la consola hacer
    ```
    git checkout main
    git pull
-   git -d <dia>-<nombre>
+   git branch -d <dia>-<nombre>
    ```

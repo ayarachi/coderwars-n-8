@@ -46,7 +46,14 @@ factorial(4) -> 4 * factorial(3)
               -> 4 * (3 * (2 * factorial(1)))
               -> 4 * (3 * (2 * 1))
               -> 4 * 6 = 24
-             
+Ahora, las llamadas se resuelven hacia atrás:
+
+factorial(2) = 2 * 1 = 2
+factorial(3) = 3 * 2 = 6
+factorial(4) = 4 * 6 = 24
+Por lo tanto, factorial(4) devuelve 24.
+
+
  ¿Qué pasa si no hay un caso base?
 Si no se define un caso base, la función se llamaría infinitamente, causando un desbordamiento de pila (stack overflow) y deteniendo el programa.
 

@@ -16,7 +16,7 @@ function smallEnough(a, limit) {
 }
 console.log(smallEnough([66, 101], 200));
 /*
-Solución encontrada en la coderwars
+Solución encontrada en la coderwars woooowwww
 function smallEnough(a, limit){
   return Math.max(...a) <= limit
 } */

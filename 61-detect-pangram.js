@@ -15,3 +15,14 @@ function isPangram(string) {
 }
 
 console.log(isPangram("This is not a pangram."));
+
+// Esta es otra manera de resolverlo sin utilizar expresiones regulares
+
+// const isPangram = (str) => {
+//   let contadores = [0, 0, 0];
+//   let abs = ["a", "b"];
+//   for (let i = 0; i < str.length; i++) {
+//     let indiceDel = conseguirElIndiceDelContadorParaLetra(str[i]);
+//     contadores[indice] = 1;
+//   }
+// };

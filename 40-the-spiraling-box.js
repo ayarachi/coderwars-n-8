@@ -44,7 +44,7 @@ function createBox(m, n) {
   // Calcular cuántas capas hay
   let capas = Math.ceil(Math.min(m, n) / 2); // Usamos Math.ceil para asegurarnos de manejar los casos correctamente
 
-  // Llenar cada capa Qué hace: Itera sobre cada capa, desde la más externa (k=0) hasta la más interna.
+  // Llenar cada capa =>Qué hace: Itera sobre cada capa, desde la más externa (k=0) hasta la más interna.
   for (let k = 0; k < capas; k++) {
     // Rellenar la fila superior e inferior de la capa k
     for (let i = k; i < m - k; i++) {
