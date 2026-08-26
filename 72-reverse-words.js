@@ -4,12 +4,7 @@ Examples
 "This is an example!" ==> "sihT si na !elpmaxe"
 "double  spaces"      ==> "elbuod  secaps"
  */
-function reverseWords(str) {
-  return str
-    .split(" ")
-    .map((word) => word.split("").reverse().join(""))
-    .join(" ");
-}
+
 console.log(reverseWords("This is an example!"));
 /*Como esta funcionando 
 1.en el primer split divide el string en un arreglo de palabras
